@@ -5,21 +5,13 @@
 @foreach(var pie in Model.Pies)
 {
     <div class="col-sm-4 col-lg-4 col-md-4 mt-3">
-        @* <div class="thumbnail">
-            <img src="@pie.ImageThumbnailUrl" alt="">
-            <div class="caption">
-                <h3 class="pull-right">@pie.Price.ToString("c")</h3>
-                <h3>
-                    <a>@pie.Name</a>
-                </h3>
-                <p>@pie.ShortDescription</p>
-            </div>
-        </div> *@
         <div class="thumbnail card">
             <img src="@pie.ImageThumbnailUrl" alt="">
             <div class="card-body">
                 <h5 class="card-title">@pie.Price.ToString("c")</h5>
-                <h4 class="card-text">@pie.Name</h4>
+                <h4 class="card-text">
+                    <a asp-controller="Pie" asp-action="Details" asp-route-id="@pie.PieId">@pie.Name</a>
+                </h4>
                 <p class="card-text">@pie.ShortDescription</p>
                 <a href="#" class="btn btn-primary">Add to Cart</a>
             </div>
